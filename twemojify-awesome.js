@@ -11,12 +11,12 @@
         module.exports = factory();
     } else {
         // Browser globals (root is window)
-        root.emojify = factory();
+        root.twemojify = factory();
     }
 }(this, function () {
         'use strict';
 
-        var emojify = (function () {
+        var twemojify = (function () {
             /**
              * NB!
              * The namedEmojiString variable is updated automatically by the
@@ -94,7 +94,7 @@
             var defaultConfig = {
                 blacklist: {
                     'ids': [],
-                    'classes': ['no-emojify'],
+                    'classes': ['no-twemojify'],
                     'elements': ['script', 'textarea', 'a', 'pre', 'code']
                 },
                 tag_type: null,
@@ -229,7 +229,7 @@
                 }
             };
 
-            function emojifyString (htmlString, replacer) {
+            function twemojifyString (htmlString, replacer) {
                 if(!htmlString) { return htmlString; }
                 if(!replacer) { replacer = defaultReplacer; }
 
@@ -375,13 +375,13 @@
                     });
                 },
 
-                replace: emojifyString,
+                replace: twemojifyString,
 
                 // Main method
                 run: run
             };
         })();
 
-        return emojify;
+        return twemojify;
     }
 ));
